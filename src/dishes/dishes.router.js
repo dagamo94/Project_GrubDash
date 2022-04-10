@@ -5,16 +5,16 @@ const methodNotAllowed = require("../errors/methodNotAllowed");
 
 // router for '/' (GET(list), POST, ALL)
 router
-.route("/")
-.get(controller.list)
-.post(controller.create)
-.all(methodNotAllowed);
+    .route("/")
+    .get(controller.list)
+    .post(controller.create)
+    .all(methodNotAllowed);
 
-// router for '/:dishId' (GET, PUT, ALL)
+// router for '/:dishId' (GET(read), PUT, ALL)
 router
 .route("/:dishId")
-.get
-.put
-.all
+.get(controller.read)
+.put(controller.update)
+.all(methodNotAllowed);
 
 module.exports = router;
