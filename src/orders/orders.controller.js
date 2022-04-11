@@ -67,7 +67,6 @@ const statusNotDelivered = (req, res, next) => {
 // FOR 'PUT': MAKE SURE STATUS BEING PASSED IN HAS A VALID STATUS CODE
 const statusIsValid = (req, res, next) => {
     const {data: {status}} = res.locals;
-    console.log(res.locals.order);
     const validStatus = ["pending", "preparing", "out-for-delivery", "delivered"];
 
     validStatus.includes(status) ? next() : next({status: 400, message: `Order must have a status of ${validStatus.join(", ")}`})
